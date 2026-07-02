@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spice Route - Online Food Ordering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-mark">SR</div>
+        <div>
+          <h1 class="brand-title">Spice Route</h1>
+          <p class="brand-sub">Fresh · Fast · Flavorful</p>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="#menu">Menu</a>
+        <a href="#details">Your Details</a>
+        <a href="#summary">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow">Online Food Ordering</span>
+      <h2 class="hero-title">Craving something <em>delicious?</em></h2>
+      <p class="hero-text">Pick your favourites, tell us where you are, and we'll take care of the rest. Bills calculated instantly - no surprises.</p>
+    </div>
+  </section>
+
+  <main class="container main-grid">
+    <section id="menu" class="panel">
+      <div class="panel-head">
+        <h3>Today's Menu</h3>
+        <p>Tick the items you'd like and set the quantity.</p>
+      </div>
+
+      <div class="menu-flex" id="menuList">
+        <!-- Menu cards injected by JS -->
+      </div>
+    </section>
+
+    <aside class="side-col">
+      <section id="details" class="panel">
+        <div class="panel-head">
+          <h3>Customer Details</h3>
+          <p>We only use this to deliver your order.</p>
+        </div>
+
+        <form id="orderForm" class="form" novalidate>
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="e.g. Arun Kumar" data-testid="input-name" />
+            <span class="err" data-err="name"></span>
+          </div>
+
+          <div class="field">
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" name="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile" data-testid="input-mobile" />
+            <span class="err" data-err="mobile"></span>
+          </div>
+
+          <div class="field">
+            <label for="address">Delivery Address</label>
+            <textarea id="address" name="address" rows="3" placeholder="House no, street, area, city" data-testid="input-address"></textarea>
+            <span class="err" data-err="address"></span>
+          </div>
+
+          <button type="submit" class="btn-primary" data-testid="btn-place-order">Place Order</button>
+        </form>
+      </section>
+
+      <section id="summary" class="panel summary-panel" aria-live="polite">
+        <div class="panel-head">
+          <h3>Order Summary</h3>
+          <p id="summaryHint">Your order will appear here.</p>
+        </div>
+        <div id="summaryBody" class="summary-body" data-testid="order-summary"></div>
+      </section>
+    </aside>
+  </main>
+
+  <div class="modal-overlay" id="thankModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-labelledby="thankTitle">
+      <div class="modal-icon">✦</div>
+      <h4 id="thankTitle">Thank You for Ordering!</h4>
+      <p id="thankText">Your delicious meal is on its way.</p>
+      <button class="btn-primary" id="closeModal" data-testid="btn-close-modal">Order Again</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Spice Route · Made with care.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
